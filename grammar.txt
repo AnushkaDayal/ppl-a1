@@ -1,0 +1,49 @@
+<program> PROGRAM L_BRAC R_BRAC LCURL_BRAC <dec_sm> <dec_sml> <assign_sm> <assign_sml> RCURL_BRAC
+<dec_sml> <dec_sm> <dec_sml>
+<dec_sml> e
+<dec_sm> <dec_pm>
+<dec_sm> <dec_array>
+<dec_sm> <dec_jagged>
+<assign_sml> <assign_sm> <assign_sml>
+<assign_sml> e
+<dec_pm> DECLARE ID COLON <dtype> SEMICOLON
+<dec_pm> DECLARE LIST OF VARIABLES ID <v_list> COLON <dtype> SEMICOLON
+<v_list> ID <v_list>
+<v_list> e
+<dtype> INTEGER
+<dtype> BOOLEAN
+<dtype> REAL
+<dec_jagged> DECLARE ID COLON JAGGED ARRAY LSQ_BRAC <range> DOTS <range> RSQ_BRAC <bracket> OF <dtype> SEMICOLON <row_list>
+<dec_jagged> DECLARE LIST OF VARIABLES ID <v_list> COLON JAGGED ARRAY LSQ_BRAC <range> DOTS <range> RSQ_BRAC <bracket> OF <dtype> SEMICOLON <row_list>
+<bracket> LSQ_BRAC RSQ_BRAC <bracket>
+<bracket> e
+<row_list> <jag_row> <row_list>
+<row_list> e
+<jag_row> R1 LSQ_BRAC NUM_LITERAL RSQ_BRAC COLON SIZE NUM_LITERAL COLON VALUES LCURL_BRAC <value> RCURL_BRAC
+<dec_array> DECLARE ID COLON ARRAY LSQ_BRAC <range> DOTS <range> RSQ_BRAC <rows> OF <dtype> SEMICOLON
+<dec_array> DECLARE LIST OF VARIABLES ID <v_list> COLON ARRAY LSQ_BRAC <range> DOTS <range> RSQ_BRAC <rows> OF <dtype> SEMICOLON
+<rows> LSQ_BRAC <range> DOTS <range> RSQ_BRAC <rows>
+<rows> e
+<range> NUM_LITERAL
+<range> ID
+<value> <val> SEMICOLON <value>
+<value> <val>
+<val> NUM_LITERAL <val>
+<val> e
+<assign_sm> <variable> EQUALS <or_opn> SEMICOLON
+<or_opn> <or_opn> OR <and_opn>
+<or_opn> <and_opn>
+<and_opn> <and_opn> AND <add_opn>
+<and_opn> <add_opn>
+<add_opn> <add_opn> SUB <mult_opn>
+<add_opn> <add_opn> ADD <mult_opn>
+<add_opn> <mult_opn>
+<mult_opn> <mult_opn> DIVIDE <var1>
+<mult_opn> <mult_opn> PROD <var1>
+<mult_opn> <var1>
+<variable> ID
+<variable> ID LSQ_BRAC <range> <rangelist> RSQ_BRAC
+<var1> <variable>
+<var1> NUM_LITERAL
+<rangelist> <range> <rangelist>
+<rangelist> e
